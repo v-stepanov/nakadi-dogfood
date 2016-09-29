@@ -1,5 +1,6 @@
 # Nakadi Dogfood
-Very basic example of how to read from [Nakadi](https://github.com/zalando/nakadi) subscription (this is not an official client)
+Very basic example of how to read from [Nakadi](https://github.com/zalando/nakadi) subscription (this is not an official client).
+
 The name refers to [dogfooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food)
 
 # Configure and run
