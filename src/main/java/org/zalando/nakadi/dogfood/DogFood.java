@@ -22,18 +22,13 @@ public class DogFood {
         final NakadiReader client = new NakadiReader(NAKADI_URL, SUBSCRIPTION_ID, "", Optional.of(TOKEN));
         client.start();
 
-        while (NakadiReader.SESSION_ID_UNKNOWN.equals(client.getSessionId())) {
-            Thread.sleep(100);
-        }
-        final String sessionId = client.getSessionId();
-
         while (true) {
             final Optional<NakadiBatch> batchOrNone = client.takeNextBatch();
             if (batchOrNone.isPresent()) {
                 final NakadiBatch batch = batchOrNone.get();
                 final NakadiCursor cursor = batch.getCursor();
                 final int commitResult = Utils.commitCursors(NAKADI_URL, SUBSCRIPTION_ID, ImmutableList.of(cursor),
-                        sessionId, Optional.of(TOKEN));
+                        client.getSessionId(), Optional.of(TOKEN));
                 System.out.println(new Date() + " | commit result: " + commitResult);
             } else {
                 Thread.sleep(100);
