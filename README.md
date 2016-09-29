@@ -1,2 +1,2 @@
 # nakadi-dogfood
-Very basic app to read from Nakadi subscription (not an official one)
+Very basic app to read from Nakadi subscription (not an official client)
